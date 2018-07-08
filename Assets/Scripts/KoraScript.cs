@@ -26,6 +26,9 @@ public class KoraScript : MonoBehaviour {
     public Text bestScoreText;
     int score = 0;
     public GameObject replayButton;
+
+    public GameObject bonus;
+
 	// Use this for initialization
 	void Start () {
 	}
@@ -87,6 +90,7 @@ public class KoraScript : MonoBehaviour {
         }
         if(col.gameObject.tag == "Bonus")
         {
+            bonus.SetActive(true);
             score += 1;
             scoreText.text = score.ToString();
         }
@@ -99,6 +103,7 @@ public class KoraScript : MonoBehaviour {
     {
         if (col.gameObject.tag == "Safe")
         {
+            bonus.SetActive(false);
             isSafe = false;
             lastGround = null;
             cdText.enabled = false;
