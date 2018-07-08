@@ -74,7 +74,7 @@ public class KoraScript : MonoBehaviour {
     }
     void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.gameObject.tag == "Safe")
+        if (col.gameObject.tag == "Safe")
         {
             score += 1;
             scoreText.text = score.ToString();
@@ -82,7 +82,7 @@ public class KoraScript : MonoBehaviour {
             StartCoroutine(lastGround.GetComponent<groundScript>().StartCountdown(cd));
 
             float randomX = Random.Range(4, 7.5f);
-            GameObject _newGround = Instantiate(groundPrefabs[Mathf.RoundToInt(Random.Range(0,groundPrefabs.Length))], newGround.transform.position + Vector3.right * randomX, Quaternion.identity);
+            GameObject _newGround = Instantiate(PercentageBasedRandom(groundPrefabs, new int[]{ 40,60 }), newGround.transform.position + Vector3.right * randomX, Quaternion.identity);
             newGround = _newGround;
         }
         if(col.gameObject.tag == "Bonus")
@@ -105,11 +105,6 @@ public class KoraScript : MonoBehaviour {
             GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
         }
     }
-
-    public void Restart()
-    {
-        SceneManager.LoadScene(0);
-    }
     void Die()
     {
         replayButton.SetActive(true);
@@ -117,5 +112,43 @@ public class KoraScript : MonoBehaviour {
             PlayerPrefs.SetFloat("BestScore", score);
 
         bestScoreText.text = "Best Score : " + PlayerPrefs.GetFloat("BestScore").ToString();
+    }
+
+    
+
+    
+    GameObject PercentageBasedRandom(GameObject[] choices,int[] percentages)
+    {
+        if(choices.Length != percentages.Length)
+        {
+            Debug.LogError("Percentages and Choices must be the same Length");
+            return null;
+        }
+        int full = 0;
+        foreach (int i in percentages)
+        {
+            full += i;
+        }
+        if (full != 100)
+        {
+            Debug.LogError("Percentages must add up to 100");
+            return null;
+        }
+
+        int length = choices.Length;
+        float randomInt = Random.Range(0, 101);
+        int holder = 0;
+        Debug.Log(randomInt);
+        GameObject choice = null;
+
+        for (int i =0; i<length; i++)
+        {
+            if (randomInt >= holder && randomInt <= percentages[i] + holder )
+                choice = choices[i];
+            holder += percentages[i];
+        }
+        
+
+        return choice;
     }
 }

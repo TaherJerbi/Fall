@@ -2,12 +2,7 @@
 using UnityEngine;
 
 public class groundScript : MonoBehaviour {
-    public bool playerOn;
-    public float cd;
-    [SerializeField]
-    GameObject groundPrefab;
     public float currCountdownValue;
-
 
     public IEnumerator StartCountdown(float countdownValue = 10)
     {
