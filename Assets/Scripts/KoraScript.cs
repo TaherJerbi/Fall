@@ -3,20 +3,24 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class KoraScript : MonoBehaviour {
     [SerializeField]
-    GameObject groundPrefab;
+    GameObject[] groundPrefabs;
     GameObject lastGround;
     [SerializeField]
     GameObject newGround;
+    
     bool isSafe =true;
+    [Header("Force")]
     public float force;
     public float forceFactor;
     public float maxForce;
     public float minForce;
     public Slider forceSlider;
+    [Header("Ground Check")]
     public LayerMask ground;
     public bool grounded;
     int locker;
     float cd = 1.2f;
+    [Header("UI")]
     public Text cdText;
     public Text scoreText;
     public Text bestScoreText;
@@ -78,7 +82,7 @@ public class KoraScript : MonoBehaviour {
             StartCoroutine(lastGround.GetComponent<groundScript>().StartCountdown(cd));
 
             float randomX = Random.Range(4, 7.5f);
-            GameObject _newGround = Instantiate(groundPrefab, newGround.transform.position + Vector3.right * randomX, Quaternion.identity);
+            GameObject _newGround = Instantiate(groundPrefabs[Mathf.RoundToInt(Random.Range(0,groundPrefabs.Length))], newGround.transform.position + Vector3.right * randomX, Quaternion.identity);
             newGround = _newGround;
         }
         if(col.gameObject.tag == "Bonus")

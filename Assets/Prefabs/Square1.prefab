@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 61766283350945940}
   - component: {fileID: 114615622343065126}
   m_Layer: 8
-  m_Name: Square
+  m_Name: Square1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95,7 +95,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1896176653786838}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: -6, z: 0}
+  m_LocalPosition: {x: 8.502476, y: -5.3654685, z: 0}
   m_LocalScale: {x: 2, y: 7.063315, z: 1}
   m_Children:
   - {fileID: 4244650725078892}
@@ -136,7 +136,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1896176653786838}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 1b4740ba09b8c2347b08c7ff26944f77, type: 2}
+  m_Material: {fileID: 6200000, guid: 13c05a5d86ae0164aaee251d6a94555c, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -274,7 +274,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8857419183fa5b540b4539eadaa053dc, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.4292453, g: 1, b: 0.9051886, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
