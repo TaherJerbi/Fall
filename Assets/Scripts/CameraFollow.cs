@@ -8,6 +8,7 @@ public class CameraFollow : MonoBehaviour {
     Color targetColor;
     void Awake()
     {
+        
         Screen.orientation = ScreenOrientation.Portrait;
         randomColor();
         GetComponent<Camera>().backgroundColor = targetColor;

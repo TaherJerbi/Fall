@@ -235,6 +235,8 @@ MonoBehaviour:
   groundPrefabs:
   - {fileID: 1896176653786838, guid: 13206b68eb3611a4890c8b3d9d9eb411, type: 2}
   - {fileID: 1896176653786838, guid: 558ce0dd9ff32c14b8ad2d2d8130cb43, type: 2}
+  - {fileID: 1896176653786838, guid: 86ef2f676cfd40b4ba0fd7fcd0aefa6a, type: 2}
+  percentages: 280000001400000028000000
   newGround: {fileID: 1750663609}
   force: 0
   forceFactor: 20
@@ -331,7 +333,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8857419183fa5b540b4539eadaa053dc, type: 3}
-  m_Color: {r: 0.22761661, g: 0.6341324, b: 0.8773585, a: 1}
+  m_Color: {r: 0.050729793, g: 0.46814018, b: 0.7169812, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -387,7 +389,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.9544, y: 477}
+  m_AnchoredPosition: {x: -2.9544, y: 332}
   m_SizeDelta: {x: 490.5, y: 205.3}
   m_Pivot: {x: 0.49999997, y: 0.49999943}
 --- !u!114 &403582865
@@ -549,7 +551,7 @@ BoxCollider2D:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 441931124}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -601,8 +603,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 341, y: 242}
-  m_SizeDelta: {x: 480, y: 40}
+  m_AnchoredPosition: {x: 352.82, y: 242}
+  m_SizeDelta: {x: 480, y: 33.64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &457837552
 MonoBehaviour:
@@ -751,9 +753,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kora: {fileID: 258118786}
-  smooth: 3
+  smooth: 4
   colors:
-  - {r: 0.3962264, g: 0, b: 0.15460816, a: 0}
+  - {r: 0.8773585, g: 0, b: 0.33878225, a: 0}
   - {r: 1, g: 0.77254903, b: 0, a: 0}
   - {r: 0.3919134, g: 0, b: 0.6784314, a: 0}
   - {r: 0.21176471, g: 0.31764707, b: 0.3764706, a: 0}
@@ -972,8 +974,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -0.19999695, y: -0.000020980835}
-  m_SizeDelta: {x: -10.4, y: 20}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &958389117
 GameObject:
@@ -1551,7 +1553,7 @@ TextMesh:
   m_Font: {fileID: 12800000, guid: edd31254029263243b23d7e69206dea9, type: 3}
   m_Color:
     serializedVersion: 2
-    rgba: 4278243071
+    rgba: 4292911674
 --- !u!23 &1776106252
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1598,6 +1600,7 @@ GameObject:
   - component: {fileID: 2023148688}
   - component: {fileID: 2023148687}
   - component: {fileID: 2023148686}
+  - component: {fileID: 2023148689}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -1620,8 +1623,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -320, y: 639}
-  m_SizeDelta: {x: 160, y: 183}
+  m_AnchoredPosition: {x: 10, y: 597}
+  m_SizeDelta: {x: 780, y: 183}
   m_Pivot: {x: 0.50000006, y: 0.5}
 --- !u!114 &2023148686
 MonoBehaviour:
@@ -1658,12 +1661,12 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: edd31254029263243b23d7e69206dea9, type: 3}
-    m_FontSize: 120
+    m_FontSize: 185
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 150
-    m_Alignment: 4
+    m_MaxSize: 185
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -1676,6 +1679,24 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2023148684}
+--- !u!95 &2023148689
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2023148684}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b383684d2ab3cfd4e805b73fee0395c3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2131867730
 GameObject:
   m_ObjectHideFlags: 0
