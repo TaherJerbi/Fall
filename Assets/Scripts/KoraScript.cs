@@ -26,8 +26,10 @@ public class KoraScript : MonoBehaviour {
     public float cd = 1.2f;
     public float mincd = .6f;
     [Header("UI")]
+    
     public Text cdText;
     public Text scoreText;
+    public Text endScoreText;
     public Text bestScoreText;
     int score = 0;
     public GameObject replayButton;
@@ -123,7 +125,8 @@ public class KoraScript : MonoBehaviour {
         if(PlayerPrefs.GetFloat("BestScore",0) < score )
             PlayerPrefs.SetFloat("BestScore", score);
 
-        bestScoreText.text = "Best Score : " + PlayerPrefs.GetFloat("BestScore").ToString();
+        endScoreText.text = "SCORE : " + score.ToString();
+        bestScoreText.text = "HIGH SCORE : " + PlayerPrefs.GetFloat("BestScore").ToString();
     }
 
     
