@@ -6,6 +6,7 @@ public class CameraFollow : MonoBehaviour {
     public float smooth;
     public Color[] colors;
     Color targetColor;
+    public float changeTime;
     void Awake()
     {
         
@@ -16,7 +17,7 @@ public class CameraFollow : MonoBehaviour {
     void Start()
     {
         range = transform.position - kora.transform.position;
-        InvokeRepeating("randomColor",10 , 10);
+        InvokeRepeating("randomColor",changeTime , changeTime);
     }
 	void LateUpdate () {
         if (kora.GetComponent<KoraScript>().grounded)
@@ -27,7 +28,10 @@ public class CameraFollow : MonoBehaviour {
 	}
     void randomColor()
     {
-        targetColor = colors[Mathf.RoundToInt(Random.Range(0, colors.Length))];
+        do{
+            targetColor = colors[Mathf.RoundToInt(Random.Range(0, colors.Length))];
+        }while(targetColor == GetComponent<Camera>().backgroundColor);
+            
     }
     
 }

@@ -22,7 +22,9 @@ public class KoraScript : MonoBehaviour {
     public LayerMask ground;
     public bool grounded;
     int locker;
-    float cd = 1.2f;
+    [Header("Cooldown")]
+    public float cd = 1.2f;
+    public float mincd = .6f;
     [Header("UI")]
     public Text cdText;
     public Text scoreText;
@@ -30,7 +32,6 @@ public class KoraScript : MonoBehaviour {
     int score = 0;
     public GameObject replayButton;
 
-    public GameObject bonus;
 
 	// Use this for initialization
 	void Start () {
@@ -41,7 +42,7 @@ public class KoraScript : MonoBehaviour {
         grounded = GetComponent<Collider2D>().IsTouchingLayers(ground);
         if (Input.GetKeyDown(KeyCode.R))
             SceneManager.LoadScene(0);
-        if (cd > .6f)
+        if (cd > mincd)
         {
             cd -= Time.deltaTime * .01f;
         }
@@ -89,13 +90,11 @@ public class KoraScript : MonoBehaviour {
 
             float randomX = Random.Range(4, 7.1f);
             
-            GameObject _newGround = Instantiate(MyScipt.PercentageBasedRandom(groundPrefabs, percentages), newGround.transform.position + Vector3.right * randomX, Quaternion.identity);
+            GameObject _newGround = Instantiate(groundPrefabs[MyScript.PercentageBasedRandom(groundPrefabs.Length, percentages)], newGround.transform.position + Vector3.right * randomX, Quaternion.identity);
             newGround = _newGround;
         }
         if(col.gameObject.tag == "Bonus")
         {
-            bonus.SetActive(true);
-            scoreText.GetComponent<Animator>().Play("SCORE");
             col.gameObject.GetComponent<SpriteRenderer>().enabled = false;
             score += 1;
             scoreText.text = score.ToString();
@@ -109,7 +108,6 @@ public class KoraScript : MonoBehaviour {
     {
         if (col.gameObject.tag == "Safe")
         {
-            bonus.SetActive(false);
             isSafe = false;
             lastGround = null;
             cdText.enabled = false;
@@ -119,6 +117,9 @@ public class KoraScript : MonoBehaviour {
     void Die()
     {
         replayButton.SetActive(true);
+        scoreText.gameObject.SetActive(false);
+        forceSlider.gameObject.SetActive(false);
+        Camera.main.GetComponent<CameraFollow>().enabled = false;
         if(PlayerPrefs.GetFloat("BestScore",0) < score )
             PlayerPrefs.SetFloat("BestScore", score);
 
