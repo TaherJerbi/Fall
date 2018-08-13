@@ -9,10 +9,11 @@ public class groundScript : MonoBehaviour {
         currCountdownValue = countdownValue;
         while (currCountdownValue > 0)
         {
-            
-            yield return new WaitForSeconds(.01f);
             currCountdownValue -= .01f;
+            yield return new WaitForSeconds(.01f);
         }
+        GetComponent<Rigidbody2D>().isKinematic = false;
+        yield return new WaitForSeconds(1f);
         Destroy(this.gameObject);
     }
 }

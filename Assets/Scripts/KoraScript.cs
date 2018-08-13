@@ -13,12 +13,14 @@ public class KoraScript : MonoBehaviour {
     
     bool isSafe =true;
     [Header("Force")]
+    Rigidbody2D rb2d;
     public float force;
     public float forceFactor;
     public float maxForce;
     public float minForce;
     public Slider forceSlider;
     [Header("Ground Check")]
+    Collider2D collider2d;
     public LayerMask ground;
     public bool grounded;
     int locker;
@@ -34,14 +36,18 @@ public class KoraScript : MonoBehaviour {
     int score = 0;
     public GameObject replayButton;
 
-
 	// Use this for initialization
+    private void Awake() {
+        collider2d = GetComponent<Collider2D>();
+        rb2d = GetComponent<Rigidbody2D>();
+    }
 	void Start () {
+        Camera.main.GetComponent<CameraScript>().enabled = true;
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        grounded = GetComponent<Collider2D>().IsTouchingLayers(ground);
+        grounded = collider2d.IsTouchingLayers(ground);
         if (Input.GetKeyDown(KeyCode.R))
             SceneManager.LoadScene(0);
         if (cd > mincd)
@@ -59,7 +65,7 @@ public class KoraScript : MonoBehaviour {
         }
         else
         {
-            GetComponent<Rigidbody2D>().AddForce(new Vector2(0.5f,1) * force * locker);
+            rb2d.AddForce(new Vector2(0.5f,1) * force * locker);
             force = minForce;
             locker = 0;
         }
@@ -75,7 +81,7 @@ public class KoraScript : MonoBehaviour {
         {
             isSafe = true;
             cdText.enabled = true;
-            GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+            rb2d.constraints = RigidbodyConstraints2D.FreezeRotation;
             transform.rotation = Quaternion.identity;
             
             
@@ -94,6 +100,7 @@ public class KoraScript : MonoBehaviour {
             
             GameObject _newGround = Instantiate(groundPrefabs[MyScript.PercentageBasedRandom(groundPrefabs.Length, percentages)], newGround.transform.position + Vector3.right * randomX, Quaternion.identity);
             newGround = _newGround;
+          
         }
         if(col.gameObject.tag == "Bonus")
         {
@@ -113,7 +120,7 @@ public class KoraScript : MonoBehaviour {
             isSafe = false;
             lastGround = null;
             cdText.enabled = false;
-            GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+            rb2d.constraints = RigidbodyConstraints2D.None;
         }
     }
     void Die()
@@ -121,7 +128,7 @@ public class KoraScript : MonoBehaviour {
         replayButton.SetActive(true);
         scoreText.gameObject.SetActive(false);
         forceSlider.gameObject.SetActive(false);
-        Camera.main.GetComponent<CameraFollow>().enabled = false;
+        Camera.main.GetComponent<CameraScript>().enabled = false;
         if(PlayerPrefs.GetFloat("BestScore",0) < score )
             PlayerPrefs.SetFloat("BestScore", score);
 

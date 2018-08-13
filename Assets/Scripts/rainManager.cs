@@ -3,18 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using DigitalRuby.RainMaker;
 public class rainManager : MonoBehaviour {
-private static GameObject playerInstance;
+public static GameObject instance;
 
+public float rainIntensity = 0.05f;
+public float smooth;
+RainScript2D rainScript2D;
  void Awake(){
+     
      DontDestroyOnLoad (this);
-         
-     if (playerInstance == null) {
-         playerInstance = this.gameObject;
+
+     if (instance == null) {
+         instance = this.gameObject;
      } else {
          Destroy(this.gameObject);
      }
+    rainScript2D = GetComponent<RainScript2D>();
  }
  private void Update() {
-	 GetComponent<RainScript2D>().Camera = Camera.main;
+	 rainScript2D.Camera = Camera.main;
+     rainScript2D.RainIntensity = Mathf.Lerp(rainScript2D.RainIntensity,rainIntensity,Time.deltaTime * smooth);
  }
+
 }

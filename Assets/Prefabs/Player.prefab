@@ -103,19 +103,22 @@ MonoBehaviour:
   - {fileID: 1896176653786838, guid: 13206b68eb3611a4890c8b3d9d9eb411, type: 2}
   - {fileID: 1896176653786838, guid: 558ce0dd9ff32c14b8ad2d2d8130cb43, type: 2}
   - {fileID: 1896176653786838, guid: d4602969e7c85bf498e89fa0fa0d8991, type: 2}
-  percentages: 280000001400000028000000
+  percentages: 1e0000001400000032000000
   newGround: {fileID: 0}
   force: 0
   forceFactor: 20
-  maxForce: 950
+  maxForce: 900
   minForce: 300
   forceSlider: {fileID: 0}
   ground:
     serializedVersion: 2
     m_Bits: 256
   grounded: 0
+  cd: 2
+  mincd: 0.8
   cdText: {fileID: 0}
   scoreText: {fileID: 0}
+  endScoreText: {fileID: 0}
   bestScoreText: {fileID: 0}
   replayButton: {fileID: 0}
 --- !u!212 &212313350922067744
