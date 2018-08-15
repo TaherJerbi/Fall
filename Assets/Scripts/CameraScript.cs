@@ -5,7 +5,10 @@ using UnityEngine;
 public class CameraScript: MonoBehaviour {
     public GameObject kora;
     public Vector3 range;
-    public float smooth;
+    float smooth;
+    public float inAirSmooth;
+    public float fastSmooth;
+    public float transition;
     public Color[] colors;
     public Color targetColor;
     int previousColorIndex = -1;
@@ -20,7 +23,9 @@ public class CameraScript: MonoBehaviour {
         DontDestroyOnLoad(this.gameObject);
         Screen.orientation = ScreenOrientation.Portrait;
     }
-    
+    private void Start() {
+        smooth = fastSmooth;
+    }
     private void Update() {
         try {
             kora = FindObjectOfType<KoraScript>().gameObject;
@@ -34,9 +39,11 @@ public class CameraScript: MonoBehaviour {
             return;
         if (kora.GetComponent<KoraScript>().grounded)
         {
-            transform.position = Vector3.Lerp(transform.position, kora.transform.position + range, Time.deltaTime * smooth);
+           smooth = Mathf.Lerp(smooth,fastSmooth,Time.deltaTime * transition);
+        }else{
+            smooth =  Mathf.Lerp(smooth,inAirSmooth,Time.deltaTime * transition);
         }
-        
+        transform.position = Vector3.Lerp(transform.position, kora.transform.position + range, Time.deltaTime * smooth);
 	}
  /*   IEnumerator randomColor(float cd)
     {

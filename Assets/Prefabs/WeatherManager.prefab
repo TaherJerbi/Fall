@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4402199376454026}
   - component: {fileID: 114826884472073060}
   - component: {fileID: 82918065892048914}
-  - component: {fileID: 114285045345713746}
   m_Layer: 0
   m_Name: WeatherManager
   m_TagString: Untagged
@@ -48,7 +47,7 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1097290083220162}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
@@ -137,21 +136,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &114285045345713746
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1097290083220162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae453cde73d05b44bb0dfc98bf45c8ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  songs:
-  - {fileID: 8300000, guid: 883aec9ab1457d1479acf902b7c57f8b, type: 3}
-  - {fileID: 8300000, guid: f516a860ad5708c4da487cda901fd0c6, type: 3}
-  - {fileID: 8300000, guid: bab8f943e4dcac54b95ef67425e0a407, type: 3}
 --- !u!114 &114826884472073060
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -182,7 +166,7 @@ MonoBehaviour:
     - {r: 0.47058824, g: 0, b: 0, a: 0}
     - {r: 0, g: 0.16078432, b: 0.24705882, a: 0}
     rainIntensity: 0.4
-    lightRayColor: {r: 0.6039216, g: 0.6039216, b: 0.6039216, a: 0.39215687}
+    lightRayColor: {r: 0.6039216, g: 0.6039216, b: 0.6039216, a: 0.627451}
   - name: No Rain
     colors:
     - {r: 0, g: 0.40392157, b: 0.5294118, a: 0}

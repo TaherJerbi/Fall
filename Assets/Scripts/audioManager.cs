@@ -12,12 +12,13 @@ public class audioManager : MonoBehaviour {
 		audioSource = GetComponent<AudioSource>();
 		
 	}
+	/* 
 	private void Start() {
 	
-	StartCoroutine(songLoop());
+		StartCoroutine(songLoop());
 		
 	}
-	
+	/* 
 	IEnumerator songLoop(){
 		int i = Mathf.RoundToInt(Random.Range(0, songs.Length));
             while(i == previousSongIndex)
@@ -26,9 +27,10 @@ public class audioManager : MonoBehaviour {
                }
 		previousSongIndex = i;
 		audioSource.clip = songs[i];
+		audioSource.enabled = true;
 		audioSource.Play();
 		yield return new WaitForSeconds(audioSource.clip.length);
 		audioSource.Stop();
 		StartCoroutine(songLoop());
-	}
+	}*/
 }

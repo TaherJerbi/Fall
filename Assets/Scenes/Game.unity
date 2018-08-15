@@ -646,16 +646,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 114826884472073060, guid: 061b4713940d6c348bd1d4815ea401c2,
-        type: 2}
-      propertyPath: changeTime
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 114826884472073060, guid: 061b4713940d6c348bd1d4815ea401c2,
-        type: 2}
-      propertyPath: weathers.Array.data[2].lightRayColor.a
-      value: 0.627451
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 061b4713940d6c348bd1d4815ea401c2, type: 2}
   m_IsPrefabAsset: 0
