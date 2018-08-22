@@ -118,7 +118,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 0.5
+  bundleVersion: 0.6
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -155,7 +155,7 @@ PlayerSettings:
     Standalone: com.TaherJerbi.Fall
   buildNumber:
     Standalone: 6
-  AndroidBundleVersionCode: 5
+  AndroidBundleVersionCode: 6
   AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
@@ -244,7 +244,7 @@ PlayerSettings:
   AndroidTargetArchitectures: 5
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: C:/Users/Asus/Documents/GameKeys/Fall/Fall.keystore
+  AndroidKeystoreName: C:/Users/Asus/Downloads/GameKeys/Fall/Fall.keystore
   AndroidKeyaliasName: alpha
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 1
